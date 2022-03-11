@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 
 const Counter = () => {
 	const [count, setCount] = useState(0);
@@ -11,4 +10,9 @@ const Counter = () => {
 	);
 };
 
-ReactDOM.render();
+export default Counter;
+
+// ReactDOM.render(
+//     <Counter />,
+//     document.getElementById('root')
+// );
