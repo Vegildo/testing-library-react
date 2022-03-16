@@ -1,22 +1,12 @@
 import "@testing-library/jest-dom/extend-expect";
-import React, { useState } from "react";
+import * as React from "react";
 import ReactDOM from "react-dom";
 import { getQueriesForElement } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 
-//import Counter from "./Counter";
+import Counter from "./Counter";
 
-const Counter = () => {
-	const [count, setCount] = useState(0);
-	const increment = () => setCount((n) => n + 1);
-	return (
-		<div>
-			<button onClick={increment}>{count}</button>
-		</div>
-	);
-};
-
-const render = (ui) => {
+function render(ui) {
 	const conteiner = document.createElement("div");
 	ReactDOM.render(ui, conteiner);
 	document.body.appendChild(conteiner);
@@ -28,7 +18,7 @@ const render = (ui) => {
 			document.body.removeChild(conteiner);
 		},
 	};
-};
+}
 
 test("renders a counter", () => {
 	const { getByText, cleanup } = render(<Counter />);
